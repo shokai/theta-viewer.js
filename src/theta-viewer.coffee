@@ -9,12 +9,12 @@ class ThetaViewer
   load: (@imgPath, callback) ->
     mapping = new THREE.UVMapping
     texture = THREE.ImageUtils.loadTexture @imgPath, mapping, =>
-      camera = new THREE.PerspectiveCamera 100, @width/@height, 1, 10000
+      camera = new THREE.PerspectiveCamera 100, @width/@height
       camera.position.set 0, 0, 180
 
       scene = new THREE.Scene
 
-      sg = new THREE.SphereGeometry 500, 60, 40
+      sg = new THREE.SphereGeometry 300, 100, 100
       mbm = new THREE.MeshBasicMaterial(map: texture)
       mesh = new THREE.Mesh sg, mbm
       mesh.scale.x = -1

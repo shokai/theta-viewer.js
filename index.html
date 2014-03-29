@@ -8,6 +8,11 @@
   <script src="./lib/OrbitControls.js"></script>
   <script src="./lib/jquery-2.1.0.min.js"></script>
   <script src="./lib/theta-viewer.js"></script>
-  <script src="./lib/main.js"></script>
+  <script>
+    var viewer = new ThetaViewer("#viewer");
+    viewer.load("./R0010022.JPG", function(){
+      console.log("load");
+    });
+  </script>
 </body>
 </html>
