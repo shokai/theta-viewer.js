@@ -41,7 +41,6 @@ class ThetaViewer
 
   load: (callback = ->) ->
     @loadMaterials =>
-      console.log "loaded materials"
       @displayNextMaterial()
       setInterval =>
         @displayNextMaterial()
@@ -57,7 +56,6 @@ class ThetaViewer
   loadMaterials: (callback) ->
     mapping = new THREE.UVMapping
     async.map @images, (img, async_done) ->
-      console.log img
       texture = THREE.ImageUtils.loadTexture img, mapping, ->
         material = new THREE.MeshBasicMaterial(map: texture)
         async_done null, material
