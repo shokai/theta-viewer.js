@@ -1,6 +1,9 @@
 class ThetaViewer
   constructor: (jQueryPath) ->
-    @dom = $(jQueryPath)
+    if typeof jQueryPath is 'string'
+      @dom = $(jQueryPath)
+    else
+      @dom = jQueryPath
     @__defineGetter__ 'width', ->
       return @dom.width()
     @__defineGetter__ 'height', ->
