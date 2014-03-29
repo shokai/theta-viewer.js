@@ -27,6 +27,15 @@ class ThetaViewer
 
     @autoRotate = false
 
+    _oldWidth = @width
+    _oldHeight = @height
+    setInterval =>
+      if _oldWidth isnt @width or _oldHeight isnt @height
+        _oldWidth = @width
+        _oldHeight = @height
+        @renderer.setSize @width, @height
+    , 100
+
   load: (callback = ->) ->
     @loadMaterials =>
       console.log "loaded materials"
