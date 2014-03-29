@@ -25,6 +25,8 @@ class ThetaViewer
     @mesh.scale.x = -1
     @scene.add @mesh
 
+    @autoRotate = false
+
   load: (callback = ->) ->
     @loadMaterials =>
       console.log "loaded materials"
@@ -32,6 +34,13 @@ class ThetaViewer
       setInterval =>
         @displayNextMaterial()
       , @interval
+
+      autoRotate = =>
+        @controls.rotateLeft 0.003
+        @controls.update()
+      setInterval =>
+        autoRotate() if @autoRotate
+      , 50
 
   loadMaterials: (callback) ->
     mapping = new THREE.UVMapping
