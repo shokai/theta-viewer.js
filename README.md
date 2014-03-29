@@ -4,6 +4,7 @@ Animate multiple-Photos taken by [Ricoh THETA](https://theta360.com/en/)
 ## Demo
 
 - http://shokai.github.io/theta-viewer.js
+- [index.html](https://github.com/shokai/theta-viewer.js/blob/master/index.html)
 
 
 ## Download
