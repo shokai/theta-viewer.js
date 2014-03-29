@@ -1,13 +1,9 @@
 class ThetaViewer
-  constructor: (jQueryPath) ->
-    if typeof jQueryPath is 'string'
-      @dom = $(jQueryPath)
-    else
-      @dom = jQueryPath
+  constructor: (@dom) ->
     @__defineGetter__ 'width', ->
-      return @dom.width()
+      return @dom.clientWidth
     @__defineGetter__ 'height', ->
-      return @dom.height()
+      return @dom.clientHeight
     @images = []
     @interval = 1000
     @materialOffset = 0
@@ -16,7 +12,7 @@ class ThetaViewer
     @scene = new THREE.Scene
     @renderer = new THREE.WebGLRenderer
     @renderer.setSize @width, @height
-    @dom[0].appendChild @renderer.domElement
+    @dom.appendChild @renderer.domElement
 
     @controls = new THREE.OrbitControls @camera
 

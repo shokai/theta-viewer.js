@@ -17,10 +17,9 @@
   <script src="./lib/async.js"></script>
   <script src="./lib/three.js"></script>
   <script src="./lib/OrbitControls.js"></script>
-  <script src="./lib/jquery-2.1.0.min.js"></script>
   <script src="./lib/theta-viewer.js"></script>
   <script>
-    var viewer = new ThetaViewer( $("#viewer") );
+    var viewer = new ThetaViewer( document.getElementById("viewer") );
     viewer.images = ["imgs/R0013005.JPG", "imgs/R0013006.JPG", "imgs/R0013007.JPG"];
     viewer.interval = 200;
     viewer.autoRotate = true;
