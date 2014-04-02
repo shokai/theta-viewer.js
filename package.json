@@ -19,6 +19,7 @@
     "grunt-coffeelint": "0.0.8",
     "grunt-contrib-watch": "~0.6.1",
     "grunt": "~0.4.4",
-    "coffee-errors": "~0.8.6"
+    "coffee-errors": "~0.8.6",
+    "uglifyjs": "~2.3.6"
   }
 }

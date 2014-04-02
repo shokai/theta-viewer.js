@@ -9,7 +9,8 @@ Animate multiple-Photos taken by [Ricoh THETA](https://theta360.com/en/)
 
 ## Download
 
-- [theta-viewer.js](https://raw.github.com/shokai/theta-viewer.js/master/lib/theta-viewer.js)
+- [theta-viewer.js](https://raw.github.com/shokai/theta-viewer.js/master/theta-viewer.js)
+- [theta-viewer.min.js](https://raw.github.com/shokai/theta-viewer.js/master/theta-viewer.min.js)
 
 
 ## Dependencies
