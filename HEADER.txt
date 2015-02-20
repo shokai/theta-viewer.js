@@ -1,4 +1,4 @@
-// theta-viewer.js v0.0.1
+// theta-viewer.js v0.0.2
 // https://github.com/shokai/theta-viewer.js
-// (c) 2014 Sho Hashimoto <hashimoto@shokai.org>
+// (c) 2014-2015 Sho Hashimoto <hashimoto@shokai.org>
 // The MIT License

@@ -1,6 +1,6 @@
-// theta-viewer.js v0.0.1
+// theta-viewer.js v0.0.2
 // https://github.com/shokai/theta-viewer.js
-// (c) 2014 Sho Hashimoto <hashimoto@shokai.org>
+// (c) 2014-2015 Sho Hashimoto <hashimoto@shokai.org>
 // The MIT License
 (function() {
   var ThetaViewer;
@@ -35,6 +35,7 @@
       this.mesh.scale.x = -1;
       this.scene.add(this.mesh);
       this.autoRotate = false;
+      this.running = false;
       _oldWidth = this.width;
       _oldHeight = this.height;
       setInterval((function(_this) {
@@ -54,20 +55,20 @@
       }
       return this.loadMaterials((function(_this) {
         return function() {
-          var autoRotate;
+          if (_this.running) {
+            return;
+          }
+          _this.running = true;
           _this.displayNextMaterial();
           setInterval(function() {
             return _this.displayNextMaterial();
           }, _this.interval);
-          autoRotate = function() {
-            _this.controls.rotateLeft(0.003);
-            return _this.controls.update();
-          };
-          return setInterval(function() {
-            if (_this.autoRotate) {
-              return autoRotate();
-            }
-          }, 50);
+          if (_this.autoRotate) {
+            return setInterval(function() {
+              _this.controls.rotateLeft(0.003);
+              return _this.controls.update();
+            }, 50);
+          }
         };
       })(this));
     };
@@ -75,14 +76,14 @@
     ThetaViewer.prototype.loadMaterials = function(callback) {
       var mapping;
       mapping = new THREE.UVMapping;
-      return async.map(this.images, function(img, async_done) {
+      return async.map(this.images, function(img, done) {
         var texture;
         return texture = THREE.ImageUtils.loadTexture(img, mapping, function() {
           var material;
           material = new THREE.MeshBasicMaterial({
             map: texture
           });
-          return async_done(null, material);
+          return done(null, material);
         });
       }, (function(_this) {
         return function(err, results) {
