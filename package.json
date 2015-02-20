@@ -1,6 +1,5 @@
 {
   "name": "theta-viewer",
-  "version": "0.0.0",
   "description": "ricoh theta viewer",
   "main": "lib/theta-viewer.js",
   "scripts": {
@@ -13,13 +12,14 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "~1.7.1",
-    "grunt-contrib-coffee": "~0.10.1",
-    "grunt-notify": "~0.2.20",
-    "grunt-coffeelint": "0.0.8",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt": "~0.4.4",
-    "coffee-errors": "~0.8.6",
-    "uglifyjs": "~2.3.6"
+    "coffee-script": "^1.9.1",
+    "grunt-cli": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-notify": "*",
+    "grunt-coffeelint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt": "*",
+    "coffee-errors": "*",
+    "uglify-js": "*"
   }
 }
