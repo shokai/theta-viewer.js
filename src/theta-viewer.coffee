@@ -25,6 +25,7 @@ class ThetaViewer
     @scene.add @mesh
 
     @autoRotate = false
+    @running = false
 
     _oldWidth = @width
     _oldHeight = @height
@@ -37,24 +38,24 @@ class ThetaViewer
 
   load: (callback = ->) ->
     @loadMaterials =>
+      return if @running
+      @running = true
       @displayNextMaterial()
       setInterval =>
         @displayNextMaterial()
       , @interval
-
-      autoRotate = =>
-        @controls.rotateLeft 0.003
-        @controls.update()
-      setInterval =>
-        autoRotate() if @autoRotate
-      , 50
+      if @autoRotate
+        setInterval =>
+          @controls.rotateLeft 0.003
+          @controls.update()
+        , 50
 
   loadMaterials: (callback) ->
     mapping = new THREE.UVMapping
-    async.map @images, (img, async_done) ->
+    async.map @images, (img, done) ->
       texture = THREE.ImageUtils.loadTexture img, mapping, ->
         material = new THREE.MeshBasicMaterial(map: texture)
-        async_done null, material
+        done null, material
     , (err, results) =>
       @materials = results
       callback()
