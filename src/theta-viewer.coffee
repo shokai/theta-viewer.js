@@ -14,7 +14,7 @@ class ThetaViewer
     @renderer.setSize @width, @height
     @dom.appendChild @renderer.domElement
 
-    @controls = new THREE.OrbitControls @camera
+    @controls = new THREE.OrbitControls @camera @dom
 
     @controls.addEventListener 'change', =>
       @renderer.render @scene, @camera
